@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BcryptModule } from './bcrypt/bcrypt.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { BcryptModule } from './bcrypt/bcrypt.module';
     }),
     UsersModule,
     BcryptModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
