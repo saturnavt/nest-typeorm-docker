@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './entities/users.entity';
 import { BcryptService } from '../bcrypt/bcrypt.service';
+import { JwtService } from '../jwt/jwt.service';
 
 @Injectable()
 export class UsersService {
@@ -10,6 +11,7 @@ export class UsersService {
     @InjectRepository(User)
     private userRepository: Repository<User>,
     private bcryptService: BcryptService,
+    private jwtService: JwtService,
   ) {}
 
   findAll() {
@@ -50,8 +52,9 @@ export class UsersService {
       body.password,
       user.password,
     );
+
     if (checkPassword == true) {
-      return user;
+      return this.jwtService.generateToken(body.username);
     } else {
       return 'Error';
     }
