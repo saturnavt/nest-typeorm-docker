@@ -11,6 +11,9 @@ import {
 import { UsersService } from './users.service';
 import { User } from './dto/user.dto';
 import { AuthGuard } from '../auth/jwt.auth.guard';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+@ApiBearerAuth()
+@ApiTags('Users')
 @Controller('users')
 export class UsersController {
   constructor(private usersSevice: UsersService) {}
