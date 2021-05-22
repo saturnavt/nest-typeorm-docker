@@ -32,7 +32,7 @@ pipeline {
             steps{
                ws("E:/Documents/Software/SATURNAVT/Jenkins/nest-typeorm-docker")// ACA SE EDITA EL NOMBRE DE LA RUTA DONDE VIVIRA EL PROJECTO  
                {
-                bat 'pm2 delete pipe_test && pm2 start dist/main.js --name pipe_test && pm2 save || pm2 start dist/main.js --name pipe_test && pm2 save';
+                cmd 'pm2 delete pipe_test && pm2 start dist/main.js --name pipe_test && pm2 save || pm2 start dist/main.js --name pipe_test && pm2 save';
                }
             }
         }
