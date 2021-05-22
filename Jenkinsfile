@@ -1,17 +1,17 @@
 pipeline {
     agent any
     stages {
-        // stage('Getch git repo') {
-        //       steps {
-        //         ws("D:/el_nombre_del_workspace")// ACA SE EDITA EL NOMBRE DE LA RUTA DONDE VIVIRA EL PROJECTO 
-        //         {
-        //              git branch: 'dev', // ACA SE PONE EL NOMBRE DE LA BRANCH A LA QUE QUERAMOS HACER PULL 
-        //                                         // SI LA RAMA ES RELEASE ESPECIFICAMOS EL NUMERO DE RELEASE EJEMPLO 'release/1' 
-        //              credentialsId: 'd6e0e8',
-        //              url: 'git@bitbucket.or'
-        //         }
-        //     }
-        // }
+        stage('Getch git repo') {
+              steps {
+                ws("E:/Documents/Software/SATURNAVT/Jenkins/nest-typeorm-docker")// ACA SE EDITA EL NOMBRE DE LA RUTA DONDE VIVIRA EL PROJECTO 
+                {
+                     git branch: 'main', // ACA SE PONE EL NOMBRE DE LA BRANCH A LA QUE QUERAMOS HACER PULL 
+                                                // SI LA RAMA ES RELEASE ESPECIFICAMOS EL NUMERO DE RELEASE EJEMPLO 'release/1' 
+                    //  credentialsId: 'd6e0e8',
+                     url: 'https://github.com/saturnavt/nest-typeorm-docker.git'
+                }
+            }
+        }
         stage('npm install'){
             steps{
                 ws("E:/Documents/Software/SATURNAVT/Jenkins/nest-typeorm-docker")// ACA SE EDITA EL NOMBRE DE LA RUTA DONDE VIVIRA EL PROJECTO  
